@@ -1,4 +1,4 @@
-# PiMotionDetectionAPI
+# MotionDetectionAPI
 
 Flask API for handling motion detections from PicoMotionDetectors
 
@@ -10,18 +10,18 @@ Flask API for handling motion detections from PicoMotionDetectors
 3. Setup Docker container:
    1. Build image: 
    ```
-   sudo docker build -t pimotiondetectionapi .
+   sudo docker build -t motiondetectionapi .
    ```
    2. Run container:
    ```
    sudo docker run -d \
     -p 8080:8080 \
-    -v <path_to_data_dir>:/PiMotionDetectionAPI/logs \
+    -v <path_to_data_dir>:/MotionDetectionAPI/logs \
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
-    --name pimotiondetectionapi pimotiondetectionapi
+    --name motiondetectionapi motiondetectionapi
    ```
    3. Make container auto startup:
    ```
-   sudo docker update --restart unless-stopped pimotiondetectionapi
+   sudo docker update --restart unless-stopped motiondetectionapi
    ```
