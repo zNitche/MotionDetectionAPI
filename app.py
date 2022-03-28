@@ -1,25 +1,8 @@
 from __init__ import create_app
-import multiprocessing
-from modules.discord_bot import MotionDetectorBOT
-from config import DiscordConfig
-import log_utils
+import bots_utils
 
 
-def start_bot_process():
-    bot_process = multiprocessing.Process(target=run_bot)
-    bot_process.start()
-
-
-def run_bot():
-    try:
-        bot = MotionDetectorBOT()
-        bot.run(DiscordConfig.DISCORD_BOT_TOKEN)
-
-    except Exception as e:
-        log_utils.log_bot(f"Error while initializing bot {e}")
-
-
-start_bot_process()
+bots_utils.start_bot_process()
 app = create_app()
 
 
