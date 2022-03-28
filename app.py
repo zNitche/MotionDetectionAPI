@@ -3,6 +3,7 @@ import bots_utils
 
 
 bots_utils.start_bot_process()
+
 app = create_app()
 
 

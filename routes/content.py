@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, current_app
 
 
 content_ = Blueprint("content", __name__, template_folder='template', static_folder='static')
@@ -6,4 +6,4 @@ content_ = Blueprint("content", __name__, template_folder='template', static_fol
 
 @content_.route("/")
 def home():
-    return "TEST"
+    current_app.motion_notifier.send_message("TEST")

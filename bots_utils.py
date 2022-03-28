@@ -2,6 +2,11 @@ import multiprocessing
 from modules.discord_bot import MotionDetectorBOT
 from config import DiscordConfig
 import log_utils
+from modules.discord_webhook import MotionDetectionNotifier
+
+
+def init_bot_webhook():
+    return MotionDetectionNotifier()
 
 
 def start_bot_process():
