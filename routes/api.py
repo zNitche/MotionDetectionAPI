@@ -10,6 +10,8 @@ api_ = Blueprint("api", __name__, template_folder='template', static_folder='sta
 
 @api_.route("/api/notify", methods=["POST"])
 def notify():
+    response = "Fail"
+
     data = request.data
 
     if data:
@@ -22,4 +24,6 @@ def notify():
 
             log_utils.log_message(notification_message)
 
-    return jsonify(status="OK")
+            response = "OK"
+
+    return jsonify(status=response)
