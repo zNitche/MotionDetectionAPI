@@ -7,10 +7,11 @@ Flask API for handling motion detections from PicoMotionDetectors
 ### Setup
 
 1. Configure Discord Bot / Webhook `DiscordConfig` in `config.py`.
+2. Change `AUTH_TOKEN` in `config.py`.
 3. Setup Docker container:
    1. Build image: 
    ```
-   sudo docker build -t motiondetectionapi .
+   sudo docker build -t motion_detection_api .
    ```
    2. Run container:
    ```
@@ -19,9 +20,9 @@ Flask API for handling motion detections from PicoMotionDetectors
     -v <path_to_data_dir>:/MotionDetectionAPI/logs \
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
-    --name motiondetectionapi motiondetectionapi
+    --name motion_detection_api motion_detection_api
    ```
    3. Make container auto startup:
    ```
-   sudo docker update --restart unless-stopped motiondetectionapi
+   sudo docker update --restart unless-stopped motion_detection_api
    ```
