@@ -28,3 +28,9 @@ class BotConfig:
     LOG_FILES_DIR_PATH = os.path.join(AppConfig.CURRENT_DIR, "logs")
     BOT_LOGS_FILE = os.path.join(LOG_FILES_DIR_PATH, "bot.txt")
 
+
+class ApiConfig:
+    AUTH_TOKEN = "test_auth_token"
+
+    TOKEN_KEY_NAME = "auth_token"
+    SENSOR_NAME_KEY_NAME = "sensor"
