@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-import bots_utils
+from utils import bots_utils
 
 
 def create_app():

@@ -1,6 +1,6 @@
 import discord
 from config import DiscordConfig, BotConfig
-import log_utils
+from utils import log_utils
 import os
 
 

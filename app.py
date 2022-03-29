@@ -1,6 +1,5 @@
 from __init__ import create_app
-import bots_utils
-
+from utils import bots_utils
 
 bots_utils.start_bot_process()
 

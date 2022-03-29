@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, request, jsonify
 from config import ApiConfig
-import log_utils
+from utils import log_utils
 import json
 from datetime import datetime
 
