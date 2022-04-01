@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 
-api_ = Blueprint("api", __name__, template_folder='template', static_folder='static')
+api_ = Blueprint("api", __name__)
 
 
 @api_.route("/api/notify", methods=["POST"])

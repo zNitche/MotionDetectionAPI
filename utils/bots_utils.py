@@ -1,7 +1,7 @@
 import multiprocessing
 from modules.motion_detector_bot import MotionDetectorBOT
 from config import DiscordConfig
-import log_utils
+from utils import log_utils
 from modules.motion_detection_notifier import MotionDetectionNotifier
 
 
