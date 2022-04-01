@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from flask import current_app as app
 
 
-errors_ = Blueprint("errors", __name__, template_folder='template', static_folder='static')
+errors_ = Blueprint("errors", __name__)
 
 
 @app.errorhandler(404)
