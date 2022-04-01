@@ -1,6 +1,6 @@
 # MotionDetectionAPI
 
-Flask API for handling motion detections from PicoMotionDetectors
+Flask API for handling motion detections from [PicoMotionDetectors](https://github.com/TheZodiaCC/PicoMotionDetector)
 
 ---
 
