@@ -15,18 +15,22 @@ def notify():
     data = request.data
 
     if data:
-        parsed_data = json.loads(data.decode("utf-8"))
+        try:
+            parsed_data = json.loads(data.decode("utf-8"))
 
-        if parsed_data[ApiConfig.TOKEN_KEY_NAME] == ApiConfig.AUTH_TOKEN:
-            notification_message = parsed_data[ApiConfig.SENSOR_NAME_KEY_NAME]
+            if parsed_data[ApiConfig.TOKEN_KEY_NAME] == ApiConfig.AUTH_TOKEN:
+                notification_message = parsed_data[ApiConfig.SENSOR_NAME_KEY_NAME]
 
-            current_app.motion_notifier.send_message(f"[{datetime.now()}] {notification_message}")
+                current_app.motion_notifier.send_message(f"[{datetime.now()}] {notification_message}")
 
-            log_utils.log_message(notification_message)
+                log_utils.log_message(notification_message)
 
-            response = make_response(jsonify(status="OK"), 200)
+                response = make_response(jsonify(status="OK"), 200)
 
-        else:
-            abort(401)
+            else:
+                abort(401)
+
+        except:
+            pass
 
     return response
