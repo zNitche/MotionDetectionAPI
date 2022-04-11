@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, request, jsonify
+from flask import Blueprint, current_app, request, jsonify, make_response, abort
 from config import ApiConfig
 from utils import log_utils
 import json
@@ -10,7 +10,7 @@ api_ = Blueprint("api", __name__)
 
 @api_.route("/api/notify", methods=["POST"])
 def notify():
-    response = "Fail"
+    response = make_response(jsonify(status="Failed"), 400)
 
     data = request.data
 
@@ -24,6 +24,9 @@ def notify():
 
             log_utils.log_message(notification_message)
 
-            response = "OK"
+            response = make_response(jsonify(status="OK"), 200)
 
-    return jsonify(status=response)
+        else:
+            abort(401)
+
+    return response
