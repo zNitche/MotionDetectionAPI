@@ -34,3 +34,7 @@ class ApiConfig:
 
     TOKEN_KEY_NAME = "auth_token"
     SENSOR_NAME_KEY_NAME = "sensor"
+
+    POST_DATA_ENCODING = "utf-8"
+    POST_FAILED_MESSAGE = "Failed"
+    POST_SUCCESS_MESSAGE = "OK"

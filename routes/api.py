@@ -10,13 +10,13 @@ api_ = Blueprint("api", __name__)
 
 @api_.route("/api/notify", methods=["POST"])
 def notify():
-    response = make_response(jsonify(status="Failed"), 400)
+    response = make_response(jsonify(status=ApiConfig.POST_FAILED_MESSAGE), 400)
 
     data = request.data
 
     if data:
         try:
-            parsed_data = json.loads(data.decode("utf-8"))
+            parsed_data = json.loads(data.decode(ApiConfig.POST_DATA_ENCODING))
 
             if parsed_data[ApiConfig.TOKEN_KEY_NAME] == ApiConfig.AUTH_TOKEN:
                 notification_message = parsed_data[ApiConfig.SENSOR_NAME_KEY_NAME]
@@ -25,12 +25,12 @@ def notify():
 
                 log_utils.log_message(notification_message)
 
-                response = make_response(jsonify(status="OK"), 200)
+                response = make_response(jsonify(status=ApiConfig.POST_SUCCESS_MESSAGE), 200)
 
             else:
                 abort(401)
 
-        except:
+        except (json.decoder.JSONDecodeError, KeyError):
             pass
 
     return response
