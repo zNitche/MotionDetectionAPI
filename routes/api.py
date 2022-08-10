@@ -5,10 +5,10 @@ import json
 from datetime import datetime
 
 
-api_ = Blueprint("api", __name__)
+api = Blueprint("api", __name__)
 
 
-@api_.route("/api/notify", methods=["POST"])
+@api.route("/api/notify", methods=["POST"])
 def notify():
     response = make_response(jsonify(status=ApiConfig.POST_FAILED_MESSAGE), 400)
 

@@ -13,7 +13,7 @@ def create_app():
     with app.app_context():
         from routes import api, errors
 
-        app.register_blueprint(api.api_)
-        app.register_blueprint(errors.errors_)
+        app.register_blueprint(api.api)
+        app.register_blueprint(errors.errors)
 
         return app

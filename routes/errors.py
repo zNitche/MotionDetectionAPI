@@ -1,25 +1,24 @@
 from flask import Blueprint, jsonify, make_response
-from flask import current_app as app
 
 
-errors_ = Blueprint("errors", __name__)
+errors = Blueprint("errors", __name__)
 
 
-@app.errorhandler(404)
-def not_found(error):
+@errors.app_errorhandler(404)
+def error_404(error):
     return make_response(jsonify(error=str(error)), 404)
 
 
-@app.errorhandler(500)
-def internal_error(error):
+@errors.app_errorhandler(500)
+def error_500(error):
     return make_response(jsonify(error=str(error)), 500)
 
 
-@app.errorhandler(401)
-def non_authenticated(error):
+@errors.app_errorhandler(401)
+def error_401(error):
     return make_response(jsonify(error=str(error)), 401)
 
 
-@app.errorhandler(405)
-def method_not_allowed(error):
+@errors.app_errorhandler(405)
+def error_405(error):
     return make_response(jsonify(error=str(error)), 405)
